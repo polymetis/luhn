@@ -1,6 +1,11 @@
 defmodule Luhn do
   def test(digits) do
-    to_char_list(digits) |> Enum.reverse |> Enum.map(&(&1-?0)) |> luhn_sum |> check
+    digits
+      |> to_char_list
+      |> Enum.reverse
+      |> Enum.map(&(&1-?0))
+      |> luhn_sum
+      |> check
   end
  
   defp luhn_sum([odd, even | rest]) when even >= 5, do:
